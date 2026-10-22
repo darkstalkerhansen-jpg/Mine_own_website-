@@ -19,7 +19,6 @@
         .fullscreen-iframe {
             position: fixed;
             bottom: 0;
-            left: 0;
             right: 0;
             width: 100%;
             height: 95%;
@@ -88,19 +87,26 @@
     <!-- Script section to handle page logic -->
     <script>
         let full = false;
+		const element = document.querySelector('.fullscreen-iframe');
+		const full = document.querySelector('.full-button');
         function changeSource(page) {
             const iframe = document.getElementById('myIframe');
-            iframe.src = page;
+			if (page="Games/Escaperoad.html") {
+				iframe.src = page;
+				element.style.width = "50%";
+				element.style.height = "50%";
+				full.style.background-color = "rgba(0, 0, 0, 0)";
+			} else {
+            	iframe.src = page;
+			{
         }
         
         function fullswap() {
             if (full) {
                 full=false;
-                const element = document.querySelector('.fullscreen-iframe');
 				element.style.height = '95%';
 			} else {
                 full=true;
-                const element = document.querySelector('.fullscreen-iframe');
 				element.style.height = '100%';
             }
         }
