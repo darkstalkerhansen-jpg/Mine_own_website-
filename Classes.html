@@ -86,7 +86,7 @@
 
     <!-- Script section to handle page logic -->
     <script>
-        let full = false;
+        let full2 = false;
 		const element = document.querySelector('.fullscreen-iframe');
 		const full = document.querySelector('.full-button');
         function changeSource(page) {
@@ -102,11 +102,11 @@
         }
         
         function fullswap() {
-            if (full) {
-                full=false;
+            if (full2) {
+                full2=false;
 				element.style.height = '95%';
 			} else {
-                full=true;
+                full2=true;
 				element.style.height = '100%';
             }
         }
