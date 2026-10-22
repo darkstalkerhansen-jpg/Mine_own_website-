@@ -26,8 +26,7 @@
             border: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            z-index: 999999; /* Ensures it sits on top of any other elements */
+            overflow: hidden; /* Ensures it sits on top of any other elements */
         }
     </style>
 </head>
@@ -40,6 +39,7 @@
 
     <!-- Embedded iframe with an initial source URL -->
     <iframe 
+        id="myiframe"
         src="https://example.com"
         class="fullscreen-iframe">
     </iframe>
