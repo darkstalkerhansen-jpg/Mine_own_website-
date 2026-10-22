@@ -26,53 +26,60 @@
             border: none;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Ensures it sits on top of any other elements */
+            overflow: hidden; 
+        }
+
+        /* 3. Small exit button pinned to the top-right corner */
+        .exit-button {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 9999; /* Ensures it stays on top of the iframe */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .exit-button:hover {
+            background-color: rgba(255, 0, 0, 0.8); /* Turns red on hover */
         }
     </style>
 </head>
 <body>
 
-    
-    
-    <!-- Button to trigger the JavaScript function -->
-    
-
     <!-- Embedded iframe with an initial source URL -->
-    <iframe 
-        id="myIframe"
-        src="https://example.com"
-        class="fullscreen-iframe">
-    </iframe>
-    <button id="button1" z-index="600">AAAAAAA</button>
+    <iframe id="myIframe" src="https://example.com" class="fullscreen-iframe"></iframe>
+
+    <!-- Fixed Exit Button -->
+    <a href="index.html" class="exit-button">✕ Exit</a>
 
     <!-- Script section to handle page logic -->
     <script>
         function changeSource(page) {
-            // Get the iframe element by its ID
             const iframe = document.getElementById('myIframe');
-            
-            // Change the source URL of the iframe
             iframe.src = page;
-            
         }
+
         window.addEventListener('DOMContentLoaded', () => {
-            // Parse the URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const targetPage = urlParams.get('page');
-
-            // If the 'page' parameter exists, run your function
             if (targetPage) {
                 changeSource(targetPage);
             }
         });
+
         window.addEventListener('keydown', (event) => {
-  // Check if the pressed key is 'l' or 'L'
-  if (event.key === 'l' || event.key === 'L') {
-    window.location.href = 'index.html';
-  }
-});
-
+            if (event.key === 'l' || event.key === 'L') {
+                window.location.href = 'index.html';
+            }
+        });
     </script>
-
 </body>
 </html>
