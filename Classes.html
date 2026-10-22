@@ -44,6 +44,16 @@
             iframe.src = page;
             
         }
+        window.addEventListener('DOMContentLoaded', () => {
+            // Parse the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetPage = urlParams.get('page');
+
+            // If the 'page' parameter exists, run your function
+            if (targetPage) {
+                changeSource(targetPage);
+            }
+        });
     </script>
 
 </body>
