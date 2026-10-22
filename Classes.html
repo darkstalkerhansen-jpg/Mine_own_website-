@@ -78,7 +78,7 @@
 <body>
 
     <!-- Embedded iframe with an initial source URL -->
-    <iframe id="myIframe" src="https://example.com" class="fullscreen-iframe"></iframe>
+    <iframe id="myIframe" src="https://example.com" class="fullscreen-iframe" loading="eager" allow="accelerated-features"></iframe>
 
     <!-- Fixed Exit Button -->
     <button class="full-button" onClick="fullswap();">fullscreen</button>
@@ -93,10 +93,7 @@
             const iframe = document.getElementById('myIframe');
 			if (page === "Games/Escaperoad.html") {
 				iframe.src = page;
-				element.style.width = '50%';
-				element.style.height = '50%';
-				full.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-				window.alert("zoom in on it[had to for FPS]");
+				element.style = 'width: 50vh; height: 50vh; transform: scale(2); transform-origin: top left; will-change: transform;';
 			} else {
             	iframe.src = page;
 			}
