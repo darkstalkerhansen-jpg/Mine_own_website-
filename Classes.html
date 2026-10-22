@@ -54,6 +54,13 @@
                 changeSource(targetPage);
             }
         });
+        window.addEventListener('keydown', (event) => {
+  // Check if the pressed key is 'l' or 'L'
+  if (event.key === 'l' || event.key === 'L') {
+    window.location.href = 'index.html';
+  }
+});
+
     </script>
 
 </body>
