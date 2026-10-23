@@ -26,7 +26,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
-            z-index: 100;
+            z-index: 101;
         }
 
         /* 3. Small exit button pinned to the top-right corner */
@@ -99,13 +99,13 @@
 				element.style = 'width: 50%; height: 50%; transform: scale(2); transform-origin: top left; top: 0; left: 0;';
 				iframe.src = page;
 				frames = true;
-				full.style.zIndex = '99';
-				exit.style.zIndex = '101';
+				full.style.zIndex = '100';
+				exit.style.zIndex = '102';
 			} else {
 				iframe.src = page;
 				frames = false;
-				full.style.zIndex = '101';
-				exit.style.zIndex = '101';
+				full.style.zIndex = '102';
+				exit.style.zIndex = '100';
 				element.style = 'width: 100%; height: 95%; bottom: 0;';
             }
         }
@@ -113,10 +113,10 @@
         function fullswap() {
             if (full2) {
                 full2=false;
-				element.style.height = '95vh';
+				element.style.height = '95%';
 			} else {
                 full2=true;
-				element.style.height = '100vh';
+				element.style.height = '100%';
             }
         }
 
