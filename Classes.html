@@ -94,8 +94,7 @@
         
 		function changeSource(page) {
             const iframe = document.getElementById('myIframe');
-			let userChoice = window.confirm("Do you want to run with better frames?(press no unless game is actually laggy on your current device)");
-            if (userChoice === true) {
+            if (isOptimized) {
 				element.style = 'width: 50%; height: 50%; transform: scale(2); transform-origin: top left; top: 0; left: 0;';
 				iframe.src = page;
 				frames = true;
@@ -127,6 +126,21 @@
                 changeSource(targetPage);
             }
         });
+		const urlParams = new URLSearchParams(window.location.search);
+
+// 2. Extract the 'optimize' parameter (returns "true" as a string, or null if missing)
+const optimizeParam = urlParams.get('optimize');
+
+// 3. Convert the string to a true Boolean variable (defaults to false if absent)
+const isOptimized = optimizeParam === 'true';
+
+// 4. Use the variable to toggle game features
+if (isOptimized) {
+    console.log("Optimization mode active.");
+    // Reduce particles, lower rendering resolution, or disable heavy shadows here
+} else {
+    console.log("Standard graphics mode active.");
+}
     </script>
 </body>
 </html>
