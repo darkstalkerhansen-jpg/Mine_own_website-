@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>classes</title>
     <style>
         /* 1. Remove default browser padding and scrollbars from the main page */
@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             width: 100vw;
-            height: 95vh;
+            height: 100vh;
             overflow: hidden; /* Prevents double scrollbars */
             background-color: rgba(1, 1, 1, 1);
         }
@@ -96,7 +96,7 @@
             const iframe = document.getElementById('myIframe');
 			let userChoice = window.confirm("Do you want to run with better frames?(press no unless game is actually laggy on your current device)");
             if (userChoice === true) {
-				element.style = 'right: 0; bottom: 0; width: 50vw; height: 50vh; transform: scale(2); transformOrigin = bottom right;';
+				element.style = 'right: 0; bottom: 0; width: 50%; height: 50%; transform: scale(2); transformOrigin = center;';
 				iframe.src = page;
 				frames = true;
 				full.style.zIndex = '99';
