@@ -96,7 +96,7 @@
             const iframe = document.getElementById('myIframe');
 			let userChoice = window.confirm("Do you want to run with better frames?(press no unless game is actually laggy on your current device)");
             if (userChoice === true) {
-				element.style = 'width: 50%; height: 50%; transform: scale(2);';
+				element.style = 'width: 50%; height: 50%; transform: scale(2); transform-origin: top left; top: 0; left: 0;';
 				iframe.src = page;
 				frames = true;
 				full.style.zIndex = '99';
