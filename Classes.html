@@ -9,8 +9,8 @@
         html, body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 95%;
+            width: 100vw;
+            height: 95vh;
             overflow: hidden; /* Prevents double scrollbars */
             background-color: rgba(1, 1, 1, 1);
         }
@@ -20,8 +20,8 @@
             position: fixed;
             bottom: 0;
             right: 0;
-            width: 100%;
-            height: 95%;
+            width: 100vw;
+            height: 95vh;
             border: none;
             margin: 0;
             padding: 0;
@@ -87,27 +87,35 @@
     <!-- Script section to handle page logic -->
     <script>
         let full2 = false;
+		let frames = false;
 		const element = document.querySelector('.fullscreen-iframe');
 		const full = document.querySelector('.full-button');
+		const exit = document.querySelector('.exit-button');
         
 		function changeSource(page) {
             const iframe = document.getElementById('myIframe');
-			iframe.src = page;
 			let userChoice = window.confirm("Do you want to run with better frames?(press no unless game is actually laggy on your current device)");
             if (userChoice === true) {
 				element.style = 'top: 0; left: 0; right: 0; bottom: 0; width: 50vw; height: 50vh; transform: scale(2); transform-origin: top left; will-change: transform;';
+				iframe.src = page;
+				frames = true;
+				full.style.zIndex = '99';
+				exit.style.zIndex = '101';
 			} else {
-				iframe.src= page;
+				iframe.src = page;
+				frames = false;
+				full.style.zIndex = '101';
+				exit.style.zIndex = '99';
             }
         }
         
         function fullswap() {
             if (full2) {
                 full2=false;
-				element.style.height = '95%';
+				element.style.height = '95vh';
 			} else {
                 full2=true;
-				element.style.height = '100%';
+				element.style.height = '100vh';
             }
         }
 
