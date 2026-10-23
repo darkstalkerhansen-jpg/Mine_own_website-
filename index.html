@@ -5,37 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>schoology</title>
 </head>
-    <script>
-        let optimized = false;
-  const checkbox = document.getElementById('myCheckbox');
-
-  checkbox.addEventListener('change', (event) => {
-    // event.target.checked automatically evaluates to true or false
-    optimized = event.target.checked; 
-  });  
-
-  </script>
-
-    </script>
 <body>
+
     <h1>pls request any games u want also if u have name suggestions</h1>
     <p><a href="https://docs.google.com/document/d/1UrPUTVVGJgQwDNHibTmRAg37IYgSf59uxW04oTVKgmg/edit?usp=drivesdk">google doc</a></p>
+    
     <label>
-      <input type="checkbox" id="myCheckbox"> Optimization?
+        <input type="checkbox" id="myCheckbox"> Optimization?
     </label>
-    <p><a href="Classes.html?page=Games/Escaperoad.html&optimize=${optimized}">Escape road</a></p>
-    <p><a href="Classes.html?page=Games/Bitlife.html&optimize=<%= optimized %>">Bitlife</a></p>
-    <p><a href="Classes.html?page=Games/Amongus.html&optimize=<%= optimized %>">amogus?</a></p>
-    <p><a href="Classes.html?page=Games/FNAF.html&optimize=<%= optimized %>">FNAF</a></p>
-    <p><a href="Classes.html?page=Games/Minecraft.html&optimize=<%= optimized %>">minecraft</a></p>
-    <p><a href="Classes.html?page=Games/MelonPLY.html&optimize=<%= optimized %>">melon playground</a></p>
-    <p><a href="Classes.html?page=Games/Solarsmash.html&optimize=<%= optimized %>">solar smash</a></p>
-    <p><a href="Classes.html?page=Games/Ragdollarchers.html&optimize=<%= optimized %>">ragdoll archer</a></p>
-    <p><a href="Classes.html?page=Games/Ragdollhit.html&optimize=<%= optimized %>">ragdoll hit</a></p>
-    <p><a href="Classes.html?page=Games/Punchtrump.html&optimize=<%= optimized %>">fighting game</a></p>
-    <p><a href="Classes.html?page=Games/Granny.html&optimize=<%= optimized %>">granny</a></p>
-    <p><a href="Classes.html?page=Games/Slither.html&optimize=<%= optimized %>">slither.io</a></p>
 
-    <p><p><br><br><br><br><br><h3>VERSION 1.0</h3><br><br><br><br><br></p></p>
+    <!-- Base URLs kept clean so JavaScript can safely append the query parameter -->
+    <p><a class="game-link" href="Classes.html?page=Games/Escaperoad.html">Escape road</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Bitlife.html">Bitlife</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Amongus.html">amogus?</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/FNAF.html">FNAF</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Minecraft.html">minecraft</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/MelonPLY.html">melon playground</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Solarsmash.html">solar smash</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Ragdollarchers.html">ragdoll archer</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Ragdollhit.html">ragdoll hit</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Punchtrump.html">fighting game</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Granny.html">granny</a></p>
+    <p><a class="game-link" href="Classes.html?page=Games/Slither.html">slither.io</a></p>
+
+    <br><br><br><br><br>
+    <h3>VERSION 1.0</h3>
+    <br><br><br><br><br>
+
+    <script>
+        const checkbox = document.getElementById('myCheckbox');
+        const gameLinks = document.querySelectorAll('.game-link');
+
+        // Add a click listener to all game links
+        gameLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                // Stop the browser from navigating immediately
+                event.preventDefault(); 
+                
+                // Read the current state of the checkbox
+                const optimized = checkbox.checked; 
+                
+                // Get the base href and append the dynamic optimize value
+                const baseHref = link.getAttribute('href');
+                const finalUrl = `${baseHref}&optimize=${optimized}`;
+                
+                // Navigate to the built URL
+                window.location.href = finalUrl;
+            });
+        });
+    </script>
 </body>
 </html>
