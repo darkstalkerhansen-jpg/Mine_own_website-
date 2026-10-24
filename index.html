@@ -5,55 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>schoology</title>
 </head>
-<body>
-
-    <h1>pls request any games u want also if u have name suggestions</h1>
-    <p><a href="https://docs.google.com/document/d/1UrPUTVVGJgQwDNHibTmRAg37IYgSf59uxW04oTVKgmg/edit?usp=drivesdk">google doc</a></p>
-    
-    <label>
-        <input type="checkbox" id="myCheckbox"> Optimization?
-    </label>
-
-    <!-- Base URLs kept clean so JavaScript can safely append the query parameter -->
-     <style>
+      <style>
 /* The base button with your radial gradient */
-#GB {
-  position: relative;
-  z-index: 100;
-  opacity: 1;
-  isolation: isolate;
-  width: 150px; /* Adjusted to fit both icon and text nicely */
-  height: 100px;
-  background-image: 
-      radial-gradient(#153f38, #243278, #153f38);
-  border: none;
-  border-radius: 8px;
-  border-radius: 0px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  overflow: hidden;
-  background-blend-mode: overlay;
-  text-decoration: none;
-  display: inline-block;
-}
+.game-btn {
+            position: relative;
+            z-index: 100;
+            opacity: 1;
+            isolation: isolate;
+            width: 100%; /* Spans the full width of its grid cell slot */
+            height: 100px;
+            
+            /* Core Background Gradient & Typography */
+            background-image: radial-gradient(#153f38, #243278, #153f38);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            
+            border: none;
+            border-radius: 8px; 
+            cursor: pointer;
+            
+            /* Centers both text and icons vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-.grain { position: relative; isolation: isolate; }
-.grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  opacity: 0.13;
-  mix-blend-mode: overlay;
-  background-image: 
-      radial-gradient(#153f38, #243278, #153f38),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='6' seed='41' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+        /* Subtle Hover Animation Effect */
+        .game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
 
+        /* Set up the container for the grain texture */
+        .grain { 
+            position: relative; 
+            isolation: isolate; 
+        }
+        
+        /* The isolated grain overlay */
+        .grain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 100;
+            opacity: 0.5; /* Subtle grain intensity so your colors pop */
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='6' seed='41' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");  
+        }
 /* The SVG Grainy Texture Overlay */
 
 /* Styling for the logo inside the button */
@@ -77,30 +82,37 @@
 
 
 </style>
+<body>
 
+    <h1>pls request any games u want also if u have name suggestions</h1>
+    <p><a href="https://docs.google.com/document/d/1UrPUTVVGJgQwDNHibTmRAg37IYgSf59uxW04oTVKgmg/edit?usp=drivesdk">google doc</a></p>
+    
+    <label>
+        <input type="checkbox" id="myCheckbox"> Optimization?
+    </label>
 
-
+    <!-- Base URLs kept clean so JavaScript can safely append the query parameter -->
 
     <p><!-- The HTML Link & Button Structure -->
-  <button id="GB" class="grain" href="Classes.html?page=Games/Escaperoad.html">
+  <button id="GB" class="game-button grain" href="Classes.html?page=Games/Escaperoad.html">
     <!-- The icon image -->
     <img src="https://img.icons8.com/?size=100&id=Y0Gmn6ZRBPfz&format=png&color=FA5252" alt="Escape Road Logo" class="button-logo">
     <!-- The button text -->
     <span class="button-text">Escape Road</span>
   </button>
 </p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Bitlife.html">Bitlife</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Amongus.html">amogus?</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/FNAF.html">FNAF</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Minecraft.html">minecraft</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/MelonPLY.html">melon playground</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Solarsmash.html">solar smash</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Ragdollarchers.html">ragdoll archer</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Ragdollhit.html">ragdoll hit</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Punchtrump.html">fighting game</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Granny.html">granny</button></p>
-    <p><button id="GB" class="grain" href="Classes.html?page=Games/Slither.html">slither.io</button></p>
-
+    <button class="game-btn grain" href="Classes.html?page=Games/Bitlife.html">Bitlife</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Amongus.html">amogus?</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/FNAF.html">FNAF</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Minecraft.html">minecraft</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/MelonPLY.html">melon playground</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Solarsmash.html">solar smash</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Ragdollarchers.html">ragdoll archer</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Ragdollhit.html">ragdoll hit</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Punchtrump.html">fighting game</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Granny.html">granny</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Slither.html">slither.io</button>
+ 
     <br><br><br><br><br>
     <h3>VERSION 1.0</h3>
     <br><br><br><br><br>
