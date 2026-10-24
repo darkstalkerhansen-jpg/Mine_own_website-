@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>schoology</title>
+    <style>
+        /* Global Body Adjustments */
+        body {
+            background-color: #0f111a; /* Dark sleek background for a gaming site */
+            color: #ffffff;
+            font-family: sans-serif;
+            margin: 20px;
+            padding-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #4da6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Checkbox Styling Container */
+        .opt-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0 25px 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* AUTOMATIC RESPONSIVE GRID SYSTEM */
+        .game-grid {
+            display: grid;
+            /* Auto-fit dynamically creates as many columns as will fit, minimum 150px each */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px; /* Perfect uniform spacing between all buttons */
+            max-width: 1200px; /* Keeps the buttons from stretching too wide on massive screens */
+            margin: 0 auto;
+        }
+
+        /* Base styling for all game buttons */
+        .game-btn {
+            position: relative;
+            z-index: 100;
+            opacity: 1;
+            isolation: isolate;
+            width: 100%; /* Spans the full width of its grid cell slot */
+            height: 100px;
+            
+            /* Core Background Gradient & Typography */
+            background-image: radial-gradient(#153f38, #243278, #153f38);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            
+            border: none;
+            border-radius: 8px; 
+            cursor: pointer;
+            
+            /* Centers both text and icons vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Subtle Hover Animation Effect */
+        .game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Set up the container for the grain texture */
+        .grain { 
+            position: relative; 
+            isolation: isolate; 
+        }
+        
+        /* The isolated grain overlay */
+        .grain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.12; /* Subtle grain intensity so your colors pop */
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='6' seed='41' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Ensure icon layer sits above the grain */
+        .button-logo {
+            width: 40px;
+            height: 40px;
+            z-index: 2; 
+            position: relative;
+        }
+
+        /* Wraps text layers cleanly */
+        .button-text {
+            z-index: 2; 
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>pls request any games u want also if u have name suggestions</h1>
+    <p><a href="https://google.com" target="_blank">google doc</a></p>
+    
+    <label class="opt-container">
+        <input type="checkbox" id="myCheckbox"> Optimization?
+    </label>
+
+    <!-- CLEAN RESPONSIVE GRID LAYOUT -->
+    <div class="game-grid">
+        <button class="game-btn grain" href="Classes.html?page=Games/Escaperoad.html">
+            <img src="https://icons8.com" alt="Escape Road Logo" class="button-logo">
+            <span class="button-text">Escape Road</span>
+        </button>
+        
+        <button class="game-btn grain" href="Classes.html?page=Games/Bitlife.html">Bitlife</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Amongus.html">amogus?</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/FNAF.html">FNAF</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Minecraft.html">minecraft</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/MelonPLY.html">melon playground</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Solarsmash.html">solar smash</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Ragdollarchers.html">ragdoll archer</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Ragdollhit.html">ragdoll hit</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Punchtrump.html">fighting game</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Granny.html">granny</button>
+        <button class="game-btn grain" href="Classes.html?page=Games/Slither.html">slither.io</button>
+    </div>
+
+    <br><br><br>
+    <h3>VERSION 1.0</h3>
+
+    <script>
+        const checkbox = document.getElementById('myCheckbox');
+        const gameLinks = document.querySelectorAll('.game-btn');
+
+        gameLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); 
+                const optimized = checkbox.checked; 
+                const baseHref = link.getAttribute('href');
+                const finalUrl = `${baseHref}&optimize=${optimized}`;
+                window.location.href = finalUrl;
+            });
+        });
+    </script>
+</body>
+</html>
