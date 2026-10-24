@@ -88,7 +88,7 @@
     <p><a href="https://docs.google.com/document/d/1UrPUTVVGJgQwDNHibTmRAg37IYgSf59uxW04oTVKgmg/edit?usp=drivesdk">google doc</a></p>
     
     <label>
-        <input type="checkbox" id="myCheckbox"> Optimization?
+        <input type="checkbox" id="myCheckbox" onClick="const myButton = document.querySelector('.button-main'); if (blue) {mybutton.style.backgroundImage: radial-gradient(#ffffff, #156392, #0f62f9); blue = false;} else {mybutton.style.backgroundImage: radial-gradient(#153f38, #243278, #153f38); blue = true;}"> Optimization?
     </label>
 
     <!-- Base URLs kept clean so JavaScript can safely append the query parameter -->
@@ -154,6 +154,7 @@
     <br><br><br><br><br>
 
     <script>
+        const blue = true;
         const checkbox = document.getElementById('myCheckbox');
         const gameLinks = document.querySelectorAll('.grain');
 
