@@ -94,6 +94,10 @@
         
 		function changeSource(page) {
             const iframe = document.getElementById('myIframe');
+			if (page === "Games/Bitlife.html") {
+				element.style = 'padding-left: 5%; padding-right: 5%;';
+				iframe.src = page;
+			} else {
             if (isOptimized) {
 				element.style = 'width: 50%; height: 50%; transform: scale(2); transform-origin: top left; top: 0; left: 0;';
 				iframe.src = page;
@@ -107,6 +111,7 @@
 				exit.style.zIndex = '100';
 				element.style = 'width: 100%; height: 95%; bottom: 0; right: 0;';
             }
+			}
         }
         
         function fullswap() {
