@@ -92,14 +92,15 @@
             const iframe = document.getElementById('myIframe');
             
             if (page === "Games/Bitlife.html") {
-                // FORCE VIRTUAL LARGE REAL ESTATE (Prevents text clipping inside the game engine layout)
-                element.style.width = '1080px';
-                element.style.height = '1920px';
+                // 1. Force the iframe to render a massive HD workspace layout
+                // This forces the "Bank Balance" text to generate way off to the right side inside the code
+                element.style.width = '1920px';
+                element.style.height = '2560px'; /* Generous vertical room for scroll actions */
                 
-                // INJECT HARD ZOOM MATRIX TO FORCE THE ENTIRE CONTAINER DOWN UNIFORMLY
-                // Using 0.44 scale forces a wide view layout to squeeze perfectly on screen
-                element.style.transform = 'scale(calc(100vw / 1080))';
-                element.style.transformOrigin = 'top center';
+                // 2. Apply a dramatic zoom-out scale factor
+                // This forces the giant 1920px workspace to compress fully into your phone's screen width
+                element.style.transform = 'scale(calc(100vw / 1920))';
+                element.style.transformOrigin = 'top left'; /* Anchor flush to the top left */
                 
                 iframe.src = page;
             } else {
