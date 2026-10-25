@@ -44,7 +44,7 @@
 /* When the checkbox is checked, change the background gradient of all game buttons */
 /* Find the checked input inside its label, then find the buttons that follow that label */
 label:has(#myCheckbox:checked) ~ .game-btn {
-  background-image: radial-gradient(#ff4d4d, #ffee00, #ff4d4d);
+  background-image: radial-gradient(#8c1818, #b54714, #8c1818);
 }
 
 
@@ -60,7 +60,7 @@ label:has(#myCheckbox:checked) ~ .game-btn {
             position: absolute;
             inset: 0;
             z-index: 100;
-            opacity: 0.5; /* Subtle grain intensity so your colors pop */
+            opacity: 0.75; /* Subtle grain intensity so your colors pop */
             mix-blend-mode: overlay;
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='6' seed='41' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");  
