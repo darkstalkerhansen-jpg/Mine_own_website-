@@ -7,7 +7,7 @@
 
     <title>BitLife - Life Simulator</title>
     <style>
-        /* 1. Global Reset & Center Alignment */
+        /* 1. Global Reset & Rigid Alignment Container */
         body, html {
             margin: 0 auto;
             padding: 0;
@@ -21,10 +21,11 @@
             font-family: "Myriad Pro", Myriad, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        /* 2. Constrain the main Unity WebGL box boundaries */
+        /* 2. Constrain the Game Board wrapper to a strict vertical smartphone viewport */
         .webgl-content {
             background: #231F20;
             width: 100%;
+            max-width: 450px; /* Forces wide landscape layouts to squeeze into view */
             height: 100%;
             position: relative;
             overflow: hidden;
@@ -33,13 +34,13 @@
             align-items: center;
         }
 
-        /* Overwrite hardcoded internal full-width selectors injected by Unity */
+        /* Overwrite Unity hardcoded fallback selectors */
         #errorBrowserBlock, #loadingBlock, .webgl-content * {
             max-width: 100%;
             box-sizing: border-box;
         }
 
-        /* 3. Force canvas matrix to scale uniformly without clipping */
+        /* 3. Lock down Unity engine dimensions to fluid aspect parameters */
         #gameContainer {
             position: absolute;
             width: 100% !important;
@@ -55,10 +56,10 @@
             height: 100% !important;
             top: 0;
             left: 0;
-            object-fit: contain !important; /* Preserves layout scale shapes perfectly */
+            object-fit: contain !important; /* Preserves vertical render ratios safely */
         }
 
-        /* Loader & Progress bar elements */
+        /* 4. Loader Assets & Utilities UI Adjustments */
         .progress, .webgl-content .logo {
             position: absolute;
             left: 50%;
@@ -96,10 +97,10 @@
         .webgl-content .progress.Dark .full { background-image: url(TemplateData/progressFull.Dark.png); }
     </style>
     <link rel="canonical" href="/">
-    <script src="https://jsdelivr.net"></script>
-    <script src="https://jsdelivr.net"></script>
+    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("gameContainer", "https://jsdelivr.net", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
