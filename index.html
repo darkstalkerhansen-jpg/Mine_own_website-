@@ -41,6 +41,11 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
+/* When the checkbox is checked, change the background gradient of all game buttons */
+#myCheckbox:checked ~ .game-btn,
+#myCheckbox:checked ~ * .game-btn {
+  background-image: radial-gradient(#ff4d4d, #ffee00, #ff4d4d);
+}
 
         /* Set up the container for the grain texture */
         .grain { 
