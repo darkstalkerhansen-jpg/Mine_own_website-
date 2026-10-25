@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>classes</title>
+    <style>
+        /* 1. Reset base workspace */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        /* 2. Container to safely hold and clip our scaled canvas wrapper */
+        .iframe-viewport-container {
+            position: fixed;
+            top: 40px; /* Leaves clean room for top control header links */
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 40px);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 3. Base class rules for our wrapper */
+        .fullscreen-iframe {
+            border: none;
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+
+        /* 4. Controls layout bar across the header zone */
+        .control-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding-right: 15px;
+            box-sizing: border-box;
+            z-index: 999;
+        }
+
+        .exit-button, .full-button {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-family: sans-serif;
+            font-size: 13px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .exit-button:hover { background-color: rgba(255, 0, 0, 0.7); border-color: transparent; }
+        .full-button:hover { background-color: rgba(0, 150, 255, 0.7); border-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <!-- Upper Utility Bar -->
+    <div class="control-header">
+        <button class="full-button" onClick="fullswap();">Fullscreen</button>
+        <a href="index.html" class="exit-button">✕ Exit</a>
+    </div>
+
+    <!-- Scaled View Container Wrap -->
+    <div class="iframe-viewport-container">
+        <iframe id="myIframe" src="https://example.com" class="fullscreen-iframe" loading="eager"></iframe>
+    </div>
+
+    <script>
+        let full2 = false;
+        const element = document.querySelector('.fullscreen-iframe');
+        const container = document.querySelector('.iframe-viewport-container');
+        
+        function changeSource(page) {
+            const iframe = document.getElementById('myIframe');
+            
+            if (page === "Games/Bitlife.html") {
+                // FORCE VIRTUAL LARGE REAL ESTATE (Prevents text clipping inside the game engine layout)
+                element.style.width = '1080px';
+                element.style.height = '1920px';
+                
+                // INJECT HARD ZOOM MATRIX TO FORCE THE ENTIRE CONTAINER DOWN UNIFORMLY
+                // Using 0.44 scale forces a wide view layout to squeeze perfectly on screen
+                element.style.transform = 'scale(calc(100vw / 1080))';
+                element.style.transformOrigin = 'top center';
+                
+                iframe.src = page;
+            } else {
+                // Fallback reset loop rules for regular non-canvas layout pages
+                element.style.width = '100%';
+                element.style.height = '100%';
+                element.style.transform = 'none';
+                element.style.transformOrigin = 'initial';
+                iframe.src = page;
+            }
+        }
+        
+        function fullswap() {
+            const header = document.querySelector('.control-header');
+            if (full2) {
+                full2 = false;
+                header.style.display = 'flex';
+                container.style.top = '40px';
+                container.style.height = 'calc(100vh - 40px)';
+            } else {
+                full2 = true;
+                header.style.display = 'none';
+                container.style.top = '0';
+                container.style.height = '100vh';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetPage = urlParams.get('page');
+            if (targetPage) {
+                changeSource(targetPage);
+            }
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const optimizeParam = urlParams.get('optimize');
+        const isOptimized = optimizeParam === 'true';
+    </script>
+</body>
+</html>
