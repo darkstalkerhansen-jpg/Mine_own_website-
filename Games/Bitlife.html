@@ -7,7 +7,7 @@
 
     <title>BitLife - Life Simulator</title>
     <style>
-        /* 1. Global Reset & Rigid Alignment Container */
+        /* 1. Global Reset & Center Alignment */
         body, html {
             margin: 0 auto;
             padding: 0;
@@ -21,12 +21,12 @@
             font-family: "Myriad Pro", Myriad, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        /* 2. Constrain the Game Board wrapper to a strict vertical smartphone viewport */
+        /* 2. Portrait View Framework (Collapses the large middle empty gap) */
         .webgl-content {
             background: #231F20;
-            width: 100%;
-            max-width: 450px; /* Forces wide landscape layouts to squeeze into view */
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            max-width: 56.25vh; /* Locks layout ratio strictly to mobile 9:16 portrait standards */
             position: relative;
             overflow: hidden;
             display: flex;
@@ -34,13 +34,13 @@
             align-items: center;
         }
 
-        /* Overwrite Unity hardcoded fallback selectors */
+        /* Overwrite hardcoded internal full-width selectors injected by Unity */
         #errorBrowserBlock, #loadingBlock, .webgl-content * {
             max-width: 100%;
             box-sizing: border-box;
         }
 
-        /* 3. Lock down Unity engine dimensions to fluid aspect parameters */
+        /* 3. Force canvas matrix to scale uniformly within the wrapper bounds */
         #gameContainer {
             position: absolute;
             width: 100% !important;
@@ -56,10 +56,10 @@
             height: 100% !important;
             top: 0;
             left: 0;
-            object-fit: contain !important; /* Preserves vertical render ratios safely */
+            object-fit: contain !important; /* Forces uniform compression on portrait view grids */
         }
 
-        /* 4. Loader Assets & Utilities UI Adjustments */
+        /* Loader & Progress bar elements */
         .progress, .webgl-content .logo {
             position: absolute;
             left: 50%;
