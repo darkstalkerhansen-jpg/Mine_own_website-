@@ -23,15 +23,15 @@
 
         /* 2. Constrain the Game Board wrapper to a strict vertical smartphone viewport */
         .webgl-content {
-            background: #231F20;
-            width: 100%;
-            max-width: 450px; /* Forces wide landscape layouts to squeeze into view */
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        background: #231F20;
+        width: 100%;
+        max-width: 480px; /* Symmetrical slight increase to expand layout space */
+        height: 100vh;    /* Forces full viewport height utilization */
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         }
 
         /* Overwrite Unity hardcoded fallback selectors */
