@@ -95,15 +95,15 @@
 		function changeSource(page) {
             const iframe = document.getElementById('myIframe');
 			if (page === "Games/Bitlife.html") {
-				// Fix: Simulate a standard mobile screen resolution inside the frame,
+            // Fix: Simulate a standard mobile screen resolution inside the frame,
             // then scale it down smoothly based on the device width (100vw / 480)
             element.style.position = 'absolute';
             element.style.width = '480px';
             element.style.height = '850px';
             element.style.top = '50%';
-            element.style.right = '50%';
+            element.style.left = '50%';
             element.style.bottom = 'auto';
-            element.style.left = 'auto';
+            element.style.right = 'auto';
             element.style.transform = 'translate(-50%, -50%) scale(calc(100vw / 480))';
             element.style.transformOrigin = 'center center';
             
