@@ -94,21 +94,6 @@
         
 		function changeSource(page) {
             const iframe = document.getElementById('myIframe');
-			if (page === "Games/Bitlife.html") {
-            // Fix: Simulate a standard mobile screen resolution inside the frame,
-            // then scale it down smoothly based on the device width (100vw / 480)
-            element.style.position = 'absolute';
-            element.style.width = '480px';
-            element.style.height = '850px';
-            element.style.top = '50%';
-            element.style.left = '50%';
-            element.style.bottom = 'auto';
-            element.style.right = 'auto';
-            element.style.transform = 'translate(-50%, -50%) scale(calc(100vw / 480))';
-            element.style.transformOrigin = 'center center';
-            
-            iframe.src = page;
-			} else {
             if (isOptimized) {
 				element.style = 'width: 50%; height: 50%; transform: scale(2); transform-origin: top left; top: 0; left: 0;';
 				iframe.src = page;
@@ -122,7 +107,6 @@
 				exit.style.zIndex = '100';
 				element.style = 'width: 100%; height: 95%; bottom: 0; right: 0;';
             }
-			}
         }
         
         function fullswap() {
