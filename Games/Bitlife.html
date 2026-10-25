@@ -7,7 +7,7 @@
 
     <title>BitLife - Life Simulator</title>
     <style>
-        /* 1. Global Reset & Rigid Alignment Container */
+        /* 1. Global Reset & Center Alignment */
         body, html {
             margin: 0 auto;
             padding: 0;
@@ -21,26 +21,25 @@
             font-family: "Myriad Pro", Myriad, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        /* 2. Constrain the Game Board wrapper to a strict vertical smartphone viewport */
+        /* 2. Constrain the main Unity WebGL box boundaries */
         .webgl-content {
-        background: #231F20;
-        width: 100%;
-        max-width: 480px; /* Symmetrical slight increase to expand layout space */
-        height: 100vh;    /* Forces full viewport height utilization */
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+            background: #231F20;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Overwrite Unity hardcoded fallback selectors */
+        /* Overwrite hardcoded internal full-width selectors injected by Unity */
         #errorBrowserBlock, #loadingBlock, .webgl-content * {
             max-width: 100%;
             box-sizing: border-box;
         }
 
-        /* 3. Lock down Unity engine dimensions to fluid aspect parameters */
+        /* 3. Force canvas matrix to scale uniformly without clipping */
         #gameContainer {
             position: absolute;
             width: 100% !important;
@@ -56,10 +55,10 @@
             height: 100% !important;
             top: 0;
             left: 0;
-            object-fit: contain !important; /* Preserves vertical render ratios safely */
+            object-fit: contain !important; /* Preserves layout scale shapes perfectly */
         }
 
-        /* 4. Loader Assets & Utilities UI Adjustments */
+        /* Loader & Progress bar elements */
         .progress, .webgl-content .logo {
             position: absolute;
             left: 50%;
@@ -97,10 +96,10 @@
         .webgl-content .progress.Dark .full { background-image: url(TemplateData/progressFull.Dark.png); }
     </style>
     <link rel="canonical" href="/">
-    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
+    <script src="https://jsdelivr.net"></script>
+    <script src="https://jsdelivr.net"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("gameContainer", "https://jsdelivr.net", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
