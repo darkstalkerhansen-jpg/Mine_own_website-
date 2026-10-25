@@ -95,7 +95,7 @@
 		function changeSource(page) {
             const iframe = document.getElementById('myIframe');
 			if (page === "Games/Bitlife.html") {
-				element.style = 'object-fit: contain; object-position: center;';
+				element.style = 'object-fit: contain; object-position: center; margin: 0 auto; overflow: hidden; width: 100vw; height: 100vh;';
 				iframe.src = page;
 			} else {
             if (isOptimized) {
